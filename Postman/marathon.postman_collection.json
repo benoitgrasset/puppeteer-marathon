@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "e45bbf6e-39d1-4f4b-8d36-55b013f5cf0c",
+		"name": "marathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const offsets = pm.collectionVariables.get(\"offsets\");\r",
+							"\r",
+							"// The opts for the server, also includes the data to be written to file\r",
+							"let opts = {\r",
+							"    requestName: request.url,\r",
+							"    fileExtension: 'json',\r",
+							"    mode: 'writeFile', // Change this to any function of the fs library of node to use it.\r",
+							"    uniqueIdentifier: false,\r",
+							"    responseData: pm.response.text()\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: 'http://localhost:3000/write',\r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify(opts)\r",
+							"    }\r",
+							"}, function (err, res) {\r",
+							"    console.log(res);\r",
+							"    \r",
+							"if(offsets && offsets.length>0) {\r",
+							"    postman.setNextRequest(\"request\");\r",
+							"}\r",
+							"else {\r",
+							" postman.setNextRequest(null);\r",
+							"}\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const limit = pm.collectionVariables.get(\"limit\");\r",
+							"let offsets = pm.collectionVariables.get(\"offsets\");\r",
+							"\r",
+							"if(!offsets) {\r",
+							"    offsets = [];\r",
+							"    for(let i=0; i<100; i++){\r",
+							"        offsets.push(i * limit)\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"const currentOffset = offsets.shift();\r",
+							"pm.collectionVariables.set(\"offset\", currentOffset);\r",
+							"pm.collectionVariables.set(\"offsets\", offsets);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://resultscui.active.com/api/results/events/SchneiderElectricMarathondeParis2022/participants?groupId=943954&routeId=170393&offset={{offset}}&limit={{limit}}",
+					"protocol": "https",
+					"host": [
+						"resultscui",
+						"active",
+						"com"
+					],
+					"path": [
+						"api",
+						"results",
+						"events",
+						"SchneiderElectricMarathondeParis2022",
+						"participants"
+					],
+					"query": [
+						{
+							"key": "groupId",
+							"value": "943954"
+						},
+						{
+							"key": "routeId",
+							"value": "170393"
+						},
+						{
+							"key": "offset",
+							"value": "{{offset}}"
+						},
+						{
+							"key": "limit",
+							"value": "{{limit}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "limit",
+			"value": "100"
+		},
+		{
+			"key": "offset",
+			"value": ""
+		},
+		{
+			"key": "offsets",
+			"value": ""
+		}
+	]
+}
