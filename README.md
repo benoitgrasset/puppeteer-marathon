@@ -11,7 +11,7 @@
 - affichage du classement de 50 en 50, y compris pour les requêtes, très fastidieux, nécessité d'automatiser
 - le bouton "Charger plus" envoie une requête pour réupérer une liste de 50 personnes supplémentaire et ajoute cette liste à la liste des peronnes existante côté front sur la SPA
 
-Pour palier à cela: collection POSTMAN avec des requêtes chain^ées
+Pour palier à cela: collection POSTMAN avec des requêtes chainées
 
 SPA: content isn't rendered until the JS is executed
 
