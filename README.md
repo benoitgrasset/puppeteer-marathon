@@ -21,7 +21,7 @@ SPA: content isn't rendered until the JS is executed
 
 ## extraction des données
 
-browser addon UI Vision RPA (addon)[https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc]
+browser addon UI Vision RPA [addon](https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc)
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
