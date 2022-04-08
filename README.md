@@ -1,4 +1,3 @@
-
 ## description
 
 extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de ce site: [lien](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022)
@@ -8,6 +7,13 @@ extraction et visualisation de la répartition des chronos sur le marathon de Pa
 ```sh
     node index
 ```
+
+Deux méthodes sont utilisées:
+
+- scrapping du site avec Puppeteer, en simulant X fois le clic sur le bouton "Charger plus"
+- requêtes chainées avec axios
+
+Les résultats sont exportés dans un fichier CSV.
 
 ## difficultés rencontrées
 
@@ -23,6 +29,8 @@ SPA: content isn't rendered until the JS is executed
 - mettre un timer au chargement de la page
 - pas de map() sur Element[]
 - utiliser la fonction evaluate()
+- Promess => ne pas oublier de retourner quelquechose !
+- await axios.get(url).then(res => res.data)
 
 ## extraction des données
 
@@ -30,12 +38,10 @@ browser addon UI Vision RPA [addon](https://chrome.google.com/webstore/detail/ui
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
+API fetch(), récupérer les requêtes serveur
+
 choix: Puppeteer car execute du JS contrairement à Cheerio qui est statique
 
 ## affichage des données
 
-grafana ?
-
-d3 ? Chart.js ?
-
-Power BI
+Les données sont affichées grâce au logiciel **Power BI** de Microsoft
