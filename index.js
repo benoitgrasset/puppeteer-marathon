@@ -79,13 +79,14 @@ const parseItem = (data, offset) => {
       minut = result.split("PT")[1].split("H")[1].split("M")[0];
       second = result.split("PT")[1].split("H")[1].split("M")[1].split("S")[0];
       minut = minut.length === 2 ? minut : "0" + minut;
-      if (second.length === 0) {
-        second = "00";
-      }
-      if (second.length === 1) {
-        second = "0" + second;
-      }
     }
+    if (second.length === 0) {
+      second = "00";
+    }
+    if (second.length === 1) {
+      second = "0" + second;
+    }
+
     return {
       rank,
       result: hour + ":" + minut + ":" + second,
