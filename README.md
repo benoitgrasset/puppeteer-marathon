@@ -36,3 +36,4 @@ choix: Puppeteer car execute du JS contrairement à Cheerio qui est statique
 
 grafana ?
 d3 ? Chart.js ?
+Power BI
