@@ -38,11 +38,11 @@ SPA: content isn't rendered until the JS is executed
 
 ## extraction des données
 
-browser addon UI Vision RPA [addon](https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc)
+browser addon [UI Vision RPA](https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc)
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
-API fetch(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max.
+axios.get(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max.
 
 Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique.
 
