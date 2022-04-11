@@ -1,6 +1,6 @@
 ## description
 
-extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de ce site: [lien](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022)
+Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de ce site: [lien](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022)
 
 ## lancer le projet
 
@@ -47,3 +47,7 @@ choix: Puppeteer car execute du JS contrairement à Cheerio qui est statique
 ## affichage des données
 
 Les données sont affichées grâce au logiciel **Power BI** de Microsoft, pas de post traitment particulier, Power BI seul fait le job
+
+## résultat
+
+![Capture](https://user-images.githubusercontent.com/32497923/162720041-85377538-e491-49bf-87b7-f9f282b3b8d6.PNG)
