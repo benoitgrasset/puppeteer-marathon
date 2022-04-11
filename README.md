@@ -1,6 +1,6 @@
 ## description
 
-Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de [ce site] (https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022).
+Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de [ce site](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022).
 
 ## lancer le projet
 
