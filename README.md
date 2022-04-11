@@ -14,7 +14,7 @@ Trois méthodes sont utilisées:
 - requêtes chainées avec **axios**, on fait N requêtes au serveru pour récupérer les résultats de 100 en 100
 - collection **Postman** avec l'offset en variable, on utilise aussi une boucle dans le pre-script pour avoir un offset différent à chaque requête
 
-Les résultats sont exportés dans un fichier CSV (séparation avec virgule).
+Les résultats sont exportés dans un fichier CSV (séparation avec des virgules).
 
 ## difficultés rencontrées
 
@@ -33,6 +33,8 @@ SPA: content isn't rendered until the JS is executed
 - Promess => ne pas oublier de retourner quelquechose !
 - await axios.get(url).then(res => res.data)
 - convertir le résultat pour l'avoir au bon format horaire
+- récupérer le selecteur du bouton "Charger plus", il n'a pas de classe ou d'id particulier
+- au bout de plusieurs dizaines de requêtes le DOM devient beaucoup trop lourd et il devient impossible de continuer, seule une approche "back" est possible ici, cad une extraction avec Postman ou axios via NodeJS
 
 ## extraction des données
 
@@ -40,9 +42,9 @@ browser addon UI Vision RPA [addon](https://chrome.google.com/webstore/detail/ui
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
-API fetch(), récupérer les requêtes serveur
+API fetch(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max.
 
-choix: Puppeteer car execute du JS contrairement à Cheerio qui est statique
+Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique.
 
 ## affichage des données
 
