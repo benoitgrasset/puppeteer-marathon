@@ -32,7 +32,7 @@ SPA: content isn't rendered until the JS is executed
 - utiliser la fonction evaluate()
 - Promess => ne pas oublier de retourner quelquechose !
 - await axios.get(url).then(res => res.data)
-- convertir le résultat pour l'avoir au bon format horaire
+- convertir le résultat pour l'avoir au bon format horaire (certains n'ont qu'un chiffre si < 10, et d'autres n'ont pas de minutes ex PT3H12S)
 - récupérer le selecteur du bouton "Charger plus", il n'a pas de classe ou d'id particulier
 - au bout de plusieurs dizaines de requêtes le DOM devient beaucoup trop lourd et il devient impossible de continuer, seule une approche "back" est possible ici, cad une extraction avec Postman ou axios via NodeJS
 
