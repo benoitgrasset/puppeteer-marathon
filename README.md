@@ -1,6 +1,6 @@
 ## description
 
-Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de ce site: [lien](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022)
+Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de [ce site] (https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022).
 
 ## lancer le projet
 
@@ -14,7 +14,7 @@ Trois méthodes sont utilisées:
 - requêtes chainées avec **axios**, on fait N requêtes au serveru pour récupérer les résultats de 100 en 100
 - collection **Postman** avec l'offset en variable, on utilise aussi une boucle dans le pre-script pour avoir un offset différent à chaque requête
 
-Les résultats sont exportés dans un fichier CSV (séparation avec des virgules). [data.csv](/data.csv)
+Les résultats sont exportés dans un fichier CSV (séparation avec des virgules): [data.csv](/data.csv).
 
 ## difficultés rencontrées
 
