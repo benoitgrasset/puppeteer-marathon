@@ -14,7 +14,7 @@ Trois méthodes sont utilisées:
 - requêtes chainées avec **axios**, on fait N requêtes au serveru pour récupérer les résultats de 100 en 100
 - collection **Postman** avec l'offset en variable, on utilise aussi une boucle dans le pre-script pour avoir un offset différent à chaque requête
 
-Les résultats sont exportés dans un fichier CSV (séparation avec des virgules). (/data.csv)
+Les résultats sont exportés dans un fichier CSV (séparation avec des virgules). [data.csv](/data.csv)
 
 ## difficultés rencontrées
 
