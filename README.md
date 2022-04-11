@@ -42,9 +42,9 @@ browser addon [UI Vision RPA](https://chrome.google.com/webstore/detail/uivision
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
-axios.get(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max.
+axios.get(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max
 
-Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique.
+Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique
 
 ## affichage des données
 
