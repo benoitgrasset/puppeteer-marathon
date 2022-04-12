@@ -144,7 +144,7 @@ async function makeMultipleRequests() {
   for (const i in offsets) {
     const offset = offsets[i];
     const fetchUrl = `https://resultscui.active.com/api/results/events/SchneiderElectricMarathondeParis2022/participants?groupId=${groupId}&routeId=${routeId}&offset=${offset}&limit=${limit}`;
-    await axios.get(fetchUrl).then((res) => {
+    await axios.get(fetchUrl).then((res: any) => {
       const newItems = parseItem(res.data, offset);
       items.push(...newItems);
     });
