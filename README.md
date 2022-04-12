@@ -1,6 +1,6 @@
 ## description
 
-Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de ce site: [lien](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022)
+Extraction et visualisation de la répartition des chronos sur le marathon de Paris 2022 à partir de [ce site](https://resultscui.active.com/events/SchneiderElectricMarathondeParis2022).
 
 ## lancer le projet
 
@@ -14,7 +14,7 @@ Trois méthodes sont utilisées:
 - requêtes chainées avec **axios**, on fait N requêtes au serveru pour récupérer les résultats de 100 en 100
 - collection **Postman** avec l'offset en variable, on utilise aussi une boucle dans le pre-script pour avoir un offset différent à chaque requête
 
-Les résultats sont exportés dans un fichier CSV (séparation avec des virgules).
+Les résultats sont exportés dans un fichier CSV (séparation avec des virgules): [data.csv](/data.csv).
 
 ## difficultés rencontrées
 
@@ -32,19 +32,19 @@ SPA: content isn't rendered until the JS is executed
 - utiliser la fonction evaluate()
 - Promess => ne pas oublier de retourner quelquechose !
 - await axios.get(url).then(res => res.data)
-- convertir le résultat pour l'avoir au bon format horaire
+- convertir le résultat pour l'avoir au bon format horaire (certains n'ont qu'un chiffre si < 10, et d'autres n'ont pas de minutes ex PT3H12S)
 - récupérer le selecteur du bouton "Charger plus", il n'a pas de classe ou d'id particulier
 - au bout de plusieurs dizaines de requêtes le DOM devient beaucoup trop lourd et il devient impossible de continuer, seule une approche "back" est possible ici, cad une extraction avec Postman ou axios via NodeJS
 
 ## extraction des données
 
-browser addon UI Vision RPA [addon](https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc)
+browser addon [UI Vision RPA](https://chrome.google.com/webstore/detail/uivision-rpa/gcbalfbdmfieckjlnblleoemohcganoc)
 
 scrapping JS (jsdom, Cheerio, Puppeteer)
 
-API fetch(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max.
+axios.get(), récupérer les requêtes serveur. Par défaut l'offset est de 50, on peut le monter à 100 max
 
-Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique.
+Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique
 
 ## affichage des données
 
