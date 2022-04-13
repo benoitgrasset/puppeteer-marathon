@@ -115,7 +115,7 @@ var routeId = 170406;
 var limit = 100;
 var items = [];
 var offsets = [];
-for (var i = 0; i < 400; i++) {
+for (var i = 0; i < 450; i++) {
     offsets.push(i * limit);
 }
 var parseItem = function (data, offset) {
@@ -142,7 +142,7 @@ var parseItem = function (data, offset) {
         }
         return {
             rank: rank,
-            result: hour + ":" + minut + ":" + second
+            result: "2022-04-03 " + hour + ":" + minut + ":" + second
         };
     });
 };
@@ -153,7 +153,7 @@ function makeMultipleRequests() {
             switch (_c.label) {
                 case 0:
                     _loop_1 = function (i) {
-                        var offset, fetchUrl, progress;
+                        var offset, fetchUrl, progress, requestTime, time;
                         return __generator(this, function (_d) {
                             switch (_d.label) {
                                 case 0:
@@ -166,7 +166,9 @@ function makeMultipleRequests() {
                                 case 1:
                                     _d.sent();
                                     progress = (offset / offsets[offsets.length - 1]) * 100;
-                                    console.log("offset: ".concat(offset, " (").concat(progress.toFixed(2), "%)"));
+                                    requestTime = 2.2;
+                                    time = (offsets.length - Number(i)) * requestTime;
+                                    console.log("offset: ".concat(offset, " (").concat(progress.toFixed(2), "%) (").concat(time, "s restant)"));
                                     return [2 /*return*/];
                             }
                         });

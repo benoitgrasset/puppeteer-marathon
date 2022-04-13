@@ -107,7 +107,7 @@ const routeId = 170406;
 const limit = 100;
 const items: Array<Item> = [];
 const offsets: Array<number> = [];
-for (let i = 0; i < 400; i++) {
+for (let i = 0; i < 450; i++) {
   offsets.push(i * limit);
 }
 
@@ -135,7 +135,7 @@ const parseItem = (data: any, offset: number) => {
 
     return {
       rank,
-      result: hour + ":" + minut + ":" + second,
+      result: "2022-04-03 " + hour + ":" + minut + ":" + second,
     };
   });
 };
@@ -149,7 +149,11 @@ async function makeMultipleRequests() {
       items.push(...newItems);
     });
     const progress = (offset / offsets[offsets.length - 1]) * 100;
-    console.log(`offset: ${offset} (${progress.toFixed(2)}%)`);
+    const requestTime = 2.2; // en secondes
+    const time = (offsets.length - Number(i)) * requestTime;
+    console.log(
+      `offset: ${offset} (${progress.toFixed(2)}%) (${time}s restant)`
+    );
   }
   return items;
 }

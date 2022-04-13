@@ -50,6 +50,8 @@ Choix: **Puppeteer** car execute du JS contrairement à Cheerio qui est statique
 
 Les données sont affichées grâce au logiciel **Power BI** de Microsoft, pas de post traitment particulier, Power BI seul fait le job
 
+Autres outils: [RawGraphs io](https://rawgraphs.io/), grafana, d3, GraphViz, ChartJS
+
 ## résultat
 
 ![Capture](https://user-images.githubusercontent.com/32497923/162720041-85377538-e491-49bf-87b7-f9f282b3b8d6.PNG)
