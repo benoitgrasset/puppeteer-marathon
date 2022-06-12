@@ -11,7 +11,7 @@ Extraction et visualisation de la répartition des chronos sur le marathon de Pa
 Trois méthodes sont utilisées:
 
 - scrapping du site avec **Puppeteer**, en simulant N fois le clic sur le bouton "Charger plus" et en récupérant les données affichées sur la page
-- requêtes chainées avec **axios**, on fait N requêtes au serveru pour récupérer les résultats de 100 en 100
+- requêtes chainées avec **axios**, on fait N requêtes au serveur pour récupérer les résultats de 100 en 100
 - collection **Postman** avec l'offset en variable, on utilise aussi une boucle dans le pre-script pour avoir un offset différent à chaque requête
 
 Les résultats sont exportés dans un fichier CSV (séparation avec des virgules): [data.csv](/data.csv).
