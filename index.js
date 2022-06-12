@@ -110,8 +110,8 @@ var scrapDataAndWriteToCSV = function () {
     });
 };
 // HTTP Request
-var groupId = 944142;
-var routeId = 170406;
+var groupId = 947610; // to update
+var routeId = 170632; // to update
 var limit = 100;
 var items = [];
 var offsets = [];
@@ -200,4 +200,6 @@ makeMultipleRequests().then(function (items) {
         console.log("Write to CSV successfully!");
     })
         .pipe(writeStream);
+    var json = JSON.stringify(items);
+    fs.writeFile("data.json", json, "utf8");
 });

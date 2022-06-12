@@ -102,8 +102,8 @@ type Item = {
 };
 
 // HTTP Request
-const groupId = 944142;
-const routeId = 170406;
+const groupId = 947610; // to update
+const routeId = 170632; // to update
 const limit = 100;
 const items: Array<Item> = [];
 const offsets: Array<number> = [];
@@ -165,4 +165,7 @@ makeMultipleRequests().then((items) => {
       console.log("Write to CSV successfully!");
     })
     .pipe(writeStream);
+
+  const json = JSON.stringify(items);
+  fs.writeFile("data.json", json, "utf8");
 });
