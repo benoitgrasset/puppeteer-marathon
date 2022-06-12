@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import data from "../../data.json";
+import data from "./data.json";
 
 const App = () => {
   const options = {
@@ -12,11 +12,7 @@ const App = () => {
     chart: {
       type: "spline",
     },
-    series: [
-      {
-        data,
-      },
-    ],
+    series: data,
   };
 
   return (

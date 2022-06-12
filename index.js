@@ -115,7 +115,7 @@ var routeId = 170632; // to update
 var limit = 100;
 var items = [];
 var offsets = [];
-for (var i = 0; i < 450; i++) {
+for (var i = 0; i < 50; i++) {
     offsets.push(i * limit);
 }
 var parseItem = function (data, offset) {
@@ -201,5 +201,9 @@ makeMultipleRequests().then(function (items) {
     })
         .pipe(writeStream);
     var json = JSON.stringify(items);
-    fs.writeFile("data.json", json, "utf8");
+    fs.writeFile("data.json", json, function (err) {
+        if (err)
+            throw err;
+        console.log("complete");
+    });
 });

@@ -105,13 +105,16 @@ type Item = {
 const groupId = 947610; // to update
 const routeId = 170632; // to update
 const limit = 100;
-const items: Array<Item> = [];
+const items: Array<{ rank: number; result: string }> = [];
 const offsets: Array<number> = [];
 for (let i = 0; i < 450; i++) {
   offsets.push(i * limit);
 }
 
-const parseItem = (data: any, offset: number) => {
+const parseItem = (
+  data: any,
+  offset: number
+): { rank: number; result: string }[] => {
   return data.items.map((item: Item, index: number) => {
     const rank = offset + index + 1;
     const result = item.finalResult.finalResult;
@@ -167,5 +170,8 @@ makeMultipleRequests().then((items) => {
     .pipe(writeStream);
 
   const json = JSON.stringify(items);
-  fs.writeFile("data.json", json, "utf8");
+  fs.writeFile("data.json", json, function (err) {
+    if (err) throw err;
+    console.log("complete");
+  });
 });
