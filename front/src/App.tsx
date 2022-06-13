@@ -2,7 +2,11 @@ import React from "react";
 import "./App.css";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import data from "./data.json";
+import dataJSON from "./data3.json";
+
+const dataToDisplay = [
+  ...dataJSON.map((e) => [Object.entries(e)[0][1], Object.entries(e)[1][1]]),
+];
 
 const App = () => {
   const options = {
@@ -12,7 +16,7 @@ const App = () => {
     chart: {
       type: "spline",
     },
-    series: data,
+    series: [{ data: dataToDisplay, lineWidth: 0.5 }],
   };
 
   return (

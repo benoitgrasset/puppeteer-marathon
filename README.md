@@ -9,6 +9,8 @@ Extraction et visualisation de la répartition des chronos sur le marathon de Pa
     node index
 ```
 
+Déplacer le json dans src/front
+
 Trois méthodes sont utilisées:
 
 - scrapping du site avec **Puppeteer**, en simulant N fois le clic sur le bouton "Charger plus" et en récupérant les données affichées sur la page
