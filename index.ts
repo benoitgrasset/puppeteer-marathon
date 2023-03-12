@@ -105,7 +105,7 @@ type Item = {
 const groupId = 947610; // to update
 const routeId = 170632; // to update
 const limit = 100;
-const items: Array<{ rank: number; result: string }> = [];
+const items: Array<{ rank: number; result: number }> = [];
 const offsets: Array<number> = [];
 for (let i = 0; i < 450; i++) {
   offsets.push(i * limit);
@@ -114,7 +114,7 @@ for (let i = 0; i < 450; i++) {
 const parseItem = (
   data: any,
   offset: number
-): { rank: number; result: string }[] => {
+): { rank: number; result: number }[] => {
   return data.items.map((item: Item, index: number) => {
     const rank = offset + index + 1;
     const result = item.finalResult.finalResult;
@@ -138,15 +138,18 @@ const parseItem = (
 
     return {
       rank,
-      result: "2022-04-03 " + hour + ":" + minut + ":" + second,
+      result: Number(hour) * 3600 + Number(minut) * 60 + Number(second),
     };
   });
 };
 
+const eventName = "SchneiderElectricMarathondeParis2022";
+// "HarmonieMutuelleSemideParis2023"
+
 async function makeMultipleRequests() {
   for (const i in offsets) {
     const offset = offsets[i];
-    const fetchUrl = `https://resultscui.active.com/api/results/events/SchneiderElectricMarathondeParis2022/participants?groupId=${groupId}&routeId=${routeId}&offset=${offset}&limit=${limit}`;
+    const fetchUrl = `https://resultscui.active.com/api/results/events/${eventName}/participants?groupId=${groupId}&routeId=${routeId}&offset=${offset}&limit=${limit}`;
     await axios.get(fetchUrl).then((res: any) => {
       const newItems = parseItem(res.data, offset);
       items.push(...newItems);

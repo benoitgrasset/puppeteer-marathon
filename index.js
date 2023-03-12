@@ -115,7 +115,7 @@ var routeId = 170632; // to update
 var limit = 100;
 var items = [];
 var offsets = [];
-for (var i = 0; i < 50; i++) {
+for (var i = 0; i < 450; i++) {
     offsets.push(i * limit);
 }
 var parseItem = function (data, offset) {
@@ -142,10 +142,12 @@ var parseItem = function (data, offset) {
         }
         return {
             rank: rank,
-            result: "2022-04-03 " + hour + ":" + minut + ":" + second
+            result: Number(hour) * 3600 + Number(minut) * 60 + Number(second)
         };
     });
 };
+var eventName = "SchneiderElectricMarathondeParis2022";
+// "HarmonieMutuelleSemideParis2023"
 function makeMultipleRequests() {
     return __awaiter(this, void 0, void 0, function () {
         var _loop_1, _a, _b, _i, i;
@@ -158,7 +160,7 @@ function makeMultipleRequests() {
                             switch (_d.label) {
                                 case 0:
                                     offset = offsets[i];
-                                    fetchUrl = "https://resultscui.active.com/api/results/events/SchneiderElectricMarathondeParis2022/participants?groupId=".concat(groupId, "&routeId=").concat(routeId, "&offset=").concat(offset, "&limit=").concat(limit);
+                                    fetchUrl = "https://resultscui.active.com/api/results/events/".concat(eventName, "/participants?groupId=").concat(groupId, "&routeId=").concat(routeId, "&offset=").concat(offset, "&limit=").concat(limit);
                                     return [4 /*yield*/, axios.get(fetchUrl).then(function (res) {
                                             var newItems = parseItem(res.data, offset);
                                             items.push.apply(items, newItems);
